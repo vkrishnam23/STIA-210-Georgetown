@@ -1,1 +1,333 @@
-Assignment 1 will be placed here when released.
+Week 1 Problem Set
+
+Due: Sept. 6th, 2019 at Midnight
+Submission: Share a Colab Notebook with the Professors:
+	kyle_meyer@alumni.brown.edu
+	vkrishnam23@gmail.com
+
+General idea of Colab Notebook Problem Set Submission : it should “just work” when I run the code cells
+
+
+The reading for next class is this paper on GDPR and data ethics for machine learning: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2865811
+
+We will start next class with a discussion on the points discussed in the paper.
+
+
+Create a Python function to perform basic name similarity analysis.
+First, begin by creating a function called score_name_similarity that takes in three arguments (the two names to score similarity, and the third argument = ‘mode’, more on this in a minute) and returns a floating point score from 0 (very much not similar) to 1 (exact match).
+In the first mode of similarity calculation. ‘dummy’ mode, return 1 for names that match exactly, and 0 for names that do not exactly match (ensure that case does not matter so it’s not thaaaat dumb).
+Clearly, exact matching is the ‘dummy’ mode. Let’s build something more clever. Using the length of the longer name as the ‘reference’, count the frequency of characters between the two names:
+
+score_name_similarity(‘Kyle’, ‘Venkatesh’, ‘freq_match’) = 0.22
+
+freq_name1 = {‘k’ : 1, ‘y’ : 1, ‘l’ : 1, ‘e’ : 1}
+freq_name2 = {‘v’ : 1, ‘e’ : 2, ‘n’ : 1, ‘k’ : 1, ‘a’ : 1, ‘t’ : 1, ‘s’ : 1, ‘h’ : 1}
+reference_length = 9
+
+# 2 letters from the first name are matched in the second name
+# because ‘e’ only appears once in the first name, don’t count it twice
+
+score = 2 / 9 = 0.22
+
+Another:
+
+score_name_similarity(‘sally’, ‘lauren’, ‘freq_match’) = 0.33
+
+freq_name1 = {‘s’ : 1, ‘a’ : 1, ‘l’ : 2, ‘y’ : 1}
+freq_name2 = {‘l’ : 1, ‘a’ : 1, ‘u’ : 1, ‘r’ : 1, ‘e’ : 1, ‘n’ : 1}
+reference_length = 6
+
+score = 2 / 6 = 0.33
+
+How does this behave as a similarity matcher?
+There are many open source packages in Python for name similarity matching (Levenstein, fuzzywuzzy, etc: https://www.datacamp.com/community/tutorials/fuzzy-string-python) Use one of these options as a third mode in your method and compare the score of 5 - 10 name combinations between each of the three modes in the function. Extra points available for those that create another function to test each of the modes for a name combination set and displays the results in a table or graph with simple stats included.
+
+
+Global Power Plant dataset: http://datasets.wri.org/dataset/globalpowerplantdatabase
+
+Use the .csv on the link above to grow your knowledge in pandas and apply the lessons learned to the energy sector.
+
+Bring the data into your Google Colab Notebook (there are examples to read from Google Drive, or download directly using the command line !wget)
+
+Do at least the following:
+	
+List the top 10 power plants by capacity.
+Determine the top 10 countries with the most power plants (by count)
+Determine the frequency of primary_fuel types for the total dataset.
+Calculate and show any major statistics that you see fit (avg. capacity + stdev, total power produced for each country - sorted)
+Find the population of each country in the world (a website like this is fine: https://www.worldometers.info/world-population/population-by-country/) and use the sum of power produced for each country to show the ‘per capita’ power generation. A slick way to do this would be to create a pandas dataframe with 2 columns (Country Name, and sum of power produced) from the first data source, and then join the population table onto this by country name, then create a column that divides the first two columns).
+
+Final Project Related Question
+Visit this site to start scoping your final project: github.com/awesomedata/awesome-public-datasets
+
+This GitHub repository provides a large list of open source datasets you may decide to use in your final project (note, you may certainly use a data source that is not on this list). There is no deliverable for 3a, though you could briefly summarize your findings and how they are interesting to your idea.
+
+
+One component of your final project is that you will need to procure a dataset completely by yourself to augment the project. One idea is a survey - allowing peers to provide structured and unstructured data to you, joining the results with another dataset you use. Other ideas could be recording foot traffic at an intersection, counting the number of people who put out cigarettes outside of buildings, counting the number of cars in a parking lot of interest (perhaps avoid looking like a carjacker), buying a sensor (LIDAR, camera, AIS, StingRays or Police Radios where legal), the list goes on.... Outline the format of data you plan to collect and a hypothesis statement as to its importance.
+
+With the following strings, compute the “magic sum”. The “magic sum” is a confusing equation made up for the enjoyment of coding. You will be given a set of strings, like the following:
+
+abcdef
+bababc
+abbcde
+abcccd
+aabcdd
+abcdee
+ababab
+
+For each string, you will need to check if the string contains exactly two of any letter, as well as separately counting the strings that have exactly three instances of any letter. Multiply the counts together to arrive at the “magic sum”. For the above strings, the first (abcdef) does not have any repeated characters. The second (bababc) has exactly 2 ‘a’, and exactly 3 ‘b’ (so it counts for both counters). The third (abbcde) has exactly 2 ‘b’s (increments only the counter for 2 character instances). The fourth (abcccd) has exactly 3 ‘c’s. The fifth (aabcdd) has 2 ‘a’ and 2 ‘d’, but only counts once. The sixth (abcdee) has 2 ‘e’. The last sequence has 3 ‘a’ and 3 ‘b’, and only counts once.
+
+This leads to 4 times that a letter appeared twice, and 3 times that the letter appeared three times. The magic sum is the product of these (4 * 3 = 12). What is the “magic sum” for the following list:
+
+
+
+naosmkcwtdbfivxuphzweraljq
+nvssmicltdbfiyxuphzgeraljq
+nvosmkcwwdbfiyxuphzeeraljx
+nvosmkcqtdbfiyxupkzgeraljw
+qvosmkcwtdbhiyxuphzgeraljh
+nvocqkcktdbfiyxuphzgeraljq
+nvosmhcwtdbfiyxmphzgekaljq
+nvosmkcwtdbfuyxwpszgeraljq
+nvosmocwtcbfiyxupfzgeraljq
+nvosmkcwtdbfiyxubczgeraljv
+nvosmkswtdbfiyxuphzgeruejq
+nlosmkcwtqbfiyxuphzgyraljq
+nvosmkcwtdbficxuphzgwraljk
+nvosmkkwtdbfiyxxphzgeralcq
+vvosmkcetdbfiyxumhzgeraljq
+evosmkcdtdbfiyxuphkgeraljq
+nvosmkvwtdbkiyxuphzgeraejq
+nvoszkcwtdbfimxuphzgeraljb
+nvozmkcwtdbfiyxuphzgrrcljq
+nvosvacwtdbfiyxuphzgeralzq
+nvosmkcwgdofiyxuthzgeraljq
+nvosmkcwasbfiyxuphzgeradjq
+nvosmkcatobfiyxtphzgeraljq
+nvosmkewtdsfiyxuphzgekaljq
+tvormkcwtdbfiyxuphzieraljq
+nvosgkcwtdbfiyxuuhzgeraqjq
+nvosmkcwtdbqiwxuphzgeralvq
+nvosmkcwtybfiydcphzgeraljq
+nvosnkcwtdbfiyxuphzulraljq
+nvosmkcwtdbbiyuupnzgeraljq
+nvosmwcwtdbfiyxuphzneraojq
+nvohlkcwtdbftyxuphzgeraljq
+nvasmkcwbdbfiyiuphzgeraljq
+nvosmkujtdbfiyxuphzgeraljz
+nvosmgcstdbfiyxuphzgeraljd
+nvoswkcwtsbziyxuphzgeraljq
+nvosmmcwtdbfiyxupbzzeraljq
+nvosmkcwtdbfifxulhzgeralji
+nvolmkcwtdbmiyxuphzgeraljv
+lvnsmkcwtdbfiyxuphzzeraljq
+nvqsmkcwtdbfiyxuphageralfq
+nvosmkcwtdmfiyluphzgeralzq
+nvommvcwtdbfiyxupjzgeraljq
+naosmkcwtdbfsyxuphzgsraljq
+avosmkcwtdbfiyxuphzgebafjq
+ndozmkcwtdbfiyxuhhzgeraljq
+nvosmkcwtubfiyxuphooeraljq
+nvosmkcwtdbliyxuphzgmraljx
+nvosmkcuddbfimxuphzgeraljq
+wvosmkzwrdbfiyxuphzgeraljq
+nvosmkcqtdbfiyxupjzgeraijq
+nvosbkcwtdbfiyduphzgeruljq
+yzosmkcntdbfiyxuphzgeraljq
+nvolmkcwtdbfiyxuphugeralfq
+nvrsmkcwtdbjiyxuphzgejaljq
+nvgsmkcwtdbfiyxuphoglraljq
+nvosmkcwtdbfioxuphzgezalhq
+nvosjkcwtdbfipxuphzgekaljq
+nvosmkcwtabfiyxlpazgeraljq
+nvosmkfwtpnfiyxuphzgeraljq
+nvokmbcwtdbeiyxuphzgeraljq
+nvosmkcwtdbfiyxupmzgmlaljq
+nvosmkcwtdhfiykurhzgeraljq
+nvosmkcwwdbfiyxumhzgiraljq
+cvosmscwtdbfikxuphzgeraljq
+nvosmkcwtdnzirxuphzgeraljq
+nvosmscwtdbfiyxuuhbgeraljq
+nvosmkcwtdbfidxpphzgeraajq
+nvosmkcwtdbfiyxuqhzgurcljq
+nvosmkcwtekfiyxrphzgeraljq
+ntosmkcwtpqfiyxuphzgeraljq
+nvosmkcdtdbfhyxsphzgrraljq
+nvolmkkwtdbfiyxuphzgeralgq
+nvosmrcwtdbfiyxuphzgefkljq
+nvoxmkcwtdbfiysuphzeeraljq
+nvjsmkswtdbfiyxuphzqeraljq
+nvosmkcetdbfiyfuphdgeraljq
+nvosmkkwtpbfsyxuphzgeraljq
+nvosdgcwtdbfiyxupyzgeraljq
+nvosmkcwudbfiyzvphzgeraljq
+nvosmkcwtlbfiyxupkzgerzljq
+nvosmkcwtdbfiywuphyzeraljq
+nvocmkcwtdufiyxukhzgeraljq
+nvosmkcwtdqfiyxuphzgevaxjq
+nvosvkcwtdbgiyxuphzgeralzq
+nqosmkcwtdbfiyxuphzeeraljr
+nvosmkcetdbfiyxuphzgeroljo
+nvosmkcwtdvfiyxuphzceraliq
+nvosmkcwtnxfiyxuphzgyraljq
+nvosmkfwtdefiyxupxzgeraljq
+nvosmacwtdbfiyxuphzseragjq
+nvpsmkcwtdbfzyxuvhzgeraljq
+nvormkcwtdbfiyxuphzairaljq
+rvysmkcwtdbfmyxuphzgeraljq
+nvosmscwzdbfiyxuphzgerbljq
+nvosmkcwtdufmyxuphzqeraljq
+nvosmkcwtxbfiyxxphzgeralxq
+nvosmkcwtdbsiyxupsfgeraljq
+nvosmccwtdbfiqxuthzgeraljq
+nvosmtcwtqbuiyxuphzgeraljq
+nvosmkcwtdbfiysurbzgeraljq
+nvowmkcwtdbfiyxuywzgeraljq
+xvosmkcktdbfiyxuhhzgeraljq
+nvosmkgwsdbfiyxmphzgeraljq
+jvofmkcwtdbfiyxupyzgeraljq
+nvozakcwtdbfiexuphzgeraljq
+nvosmkcptdbfiyxuphzgepaljn
+nvosmkcwtdbpiyxuphzgeraxjw
+nvoszkcwtdbfiyjuphzeeraljq
+nvosmkcwtdbfiyxuppzoeraejq
+nvosmkiytdbfiyhuphzgeraljq
+nvosmkcwtdvfiywupyzgeraljq
+nvosmecwtdofiyxuphzgeralja
+nvosmkqwtdbfixxuphzgeraojq
+nvosmkwwtdbfiyxfpdzgeraljq
+nvosmkgwtdbfiyzupwzgeraljq
+nmosmucwtdvfiyxuphzgeraljq
+nvosmdcwtdbmiyxuphzveraljq
+wvosmkcwtpbfiyxuphzgetaljq
+nvosmmcwtdlfbyxuphzgeraljq
+nvosmkcwtabmiexuphzgeraljq
+nvosqpcwtdbfiyxuphzgqraljq
+nvosmecwjdbfiyxuphzgeraljk
+nyohmkcwtdbfiyxuphzgzraljq
+nlosmkcwtkbfiyxuphzgeraejq
+nvosmkcwrdbliyxuphzgerpljq
+nvusmkzwtdbfxyxuphzgeraljq
+nvosmkcwtdbfiyxuhizgerazjq
+nvosmkhptdbfbyxuphzgeraljq
+nvosmfcwtdbgiyxupdzgeraljq
+nvosmkmwtdbfiyxuphzgevalpq
+nvosmkcwtdwfiyxuphzherjljq
+nvosmkcwjwbfiyxuphzgeualjq
+nvosmkcwxdbflymuphzgeraljq
+nvosmkcwpdbriyxuphzoeraljq
+nvoshkcwcdbfiyxuphzgeravjq
+nvosmkcetcbfiyxgphzgeraljq
+nvosmkcwtdyfiyxuphzgerwqjq
+nuosmkcwedbfiyxurhzgeraljq
+nvosmkcwtdbfiixuphzctraljq
+nvoszkcwtdbfwyxuphzgerpljq
+nvormkcwtdbfiyxuphzgeralzn
+nvosmkyttdbfiywuphzgeraljq
+nvosmkcwtdbhiyxupazgeralhq
+nvotmkcwtdbfiyxuphzgevalbq
+nvosmkcwedbfiyxuphzguraljr
+nvssmkcwtdbfiyxushzgeralbq
+nvosmkcwtdeziyxuphzgeralhq
+nvogmkcwtdbfiyxuphzgerrxjq
+ncormkcwtdbfiyxuphzgeraloq
+nvosmkcwbdbfiyeuphzgerqljq
+nvosxkcwtdbfsyxupfzgeraljq
+nvohmkcwtdbfiyxuphzseraajq
+nvoscdcwtdbfiyxuphzgeralqq
+neosmkcwtdbfiyxuchzgeralgq
+njosmvcwpdbfiyxuphzgeraljq
+nvosmkcwtwbfiyxuphzgehamjq
+nvosmkcwtdbfiyxushzgejaljv
+nvosmkcwodbfiyxuphzgeryqjq
+nvoymqcwtdbfiyxuphzgeralbq
+nvosmkcwtdjfiyxuphzgesaljb
+nvjsmdcwedbfiyxuphzgeraljq
+nvosmkcwydbfiyxuihzmeraljq
+nvrsmkcwtdifiyxuphzgqraljq
+nposmkcwtdbfiyxiohzgeraljq
+dvosmkcwtdbfiyxuphzrvraljq
+pvosmkcwudbfsyxuphzgeraljq
+noosmkcwtdbfiyxuphtgexaljq
+nvosmkcwtdbfiaxuphyferaljq
+nvhsmlcwtdbfiyxuphzgeualjq
+nvosekcwtdbbiyxuphzgerabjq
+nvosvkcitdbfiyxuphzgerarjq
+nvotmkkwtdbfiyxuphzgeraljj
+nvosmecwtdbfiyxuphzgyralwq
+hvosmkcwtdbfiyxuphzysraljq
+nvosmkcvtdbfiyxlphzgeraljb
+nvosmkcwttbfiyxuphngtraljq
+nvoslkcwtdbfiyxuphzqeraljr
+nxosmkcwtdbfibxuphzgrraljq
+nvokmkhwtdbfiyxuphzgwraljq
+nvosmkfwtdbfiyxuphzgdraljo
+nvcsmkcwtdbfibxuphzgeraljl
+nvosmkcwtdcfiaxuphzeeraljq
+wvosmkcwtdbyiyxjphzgeraljq
+nyosmbcwtjbfiyxuphzgeraljq
+nvosmkcwtdbiiyxuahzieraljq
+nqosmkcwtdbfiyxuyhzgerapjq
+nvosmkcwtdbfiyxuwhzzetaljq
+nvosmkcwfgbfiyxuphzgerrljq
+nvosmbcwtdbfipxuphzderaljq
+nvosmkcwtdgfiyxupdzgerjljq
+noosmkcwtdcfiyxuphlgeraljq
+nvonmkcutdbfiyxuphzieraljq
+nvocmkcwtdbfiyyuphageraljq
+nvosmkcwtdbfoyxuphzneraqjq
+nvoskkcwtdbtiyxuphzgevaljq
+ocosmkswtdbfiyxuphzgeraljq
+nvosmkcqtdbfiyxfvhzgeraljq
+noosmkcwtdbfiyquphzberaljq
+nvosmkcwttbfijxuchzgeraljq
+nvogmkcwtdbfiyxupazgeralaq
+nvqsmkcwtdbfikxuphzgeraliq
+nvosmkuwtdbfiyxuphzjwraljq
+nyosmhcwtdbfiyxuphzgereljq
+nvosmncwtdbfietuphzgeraljq
+gvpsmkcwtdbfiyxuyhzgeraljq
+nvozmkewtlbfiyxuphzgeraljq
+nvostkcltpbfiyxuphzgeraljq
+nvosmkcwtdbdiyxuphzgehaljz
+nvosmkcwtjbziyxuphzgexaljq
+nvosmkcwtdbfiyptphzggraljq
+nvosmkcwtdbliyxupjzgebaljq
+nvosmkawtdbfiyxupxzgtraljq
+vvosmkcwtdbfiyxfphzperaljq
+nvosmkawtdbfiyxutczgeraljq
+nvosmkcbtdbuiyxrphzgeraljq
+nvbsmkcwtdbfiyxdphzgerasjq
+nvosnkcwqdsfiyxuphzgeraljq
+nvosmkcwtdbfiyxwphzgzzaljq
+nvosmkcwtdbffyquphzgeralcq
+nvosmkcwtzbfiyxdphzgzraljq
+nvysmkcwtdbfiycvphzgeraljq
+nvowmkcwtdbfiycuyhzgeraljq
+nvosbkcwtdbfiyiuphzgeraqjq
+nvosmecwtdbfiyxupqzmeraljq
+nvosmkcdtdbfhyxsphzgeraljq
+nmosmkcwtdbziyxuphzgercljq
+nvosmkcwtdbfiyxupfmgersljq
+nvosmkcvtdbpyyxuphzgeraljq
+nvosmkcwtkbfiyaupxzgeraljq
+nvosmkcwtzbiiyxuphzgerazjq
+nvoxmkcwtdbfiyxuphztegaljq
+nvonmkcwtdafiyxuphzgerkljq
+rvommkcwtdbfiyxzphzgeraljq
+nvosmkcwthbfiysuphzgeraxjq
+nvosmkcwtdbfnyxuphzgerccjq
+nrosmzcwtdbfiyxuphkgeraljq
+nvolmkcdtdbfiyxuphtgeraljq
+nvosfkcwtdbfiyeuphcgeraljq
+nvowmkcwtdbfhyxuphzgerafjq
+gvosmkcwtdbfiyxupbpgeraljq
+nvosmkcwtdbkiyxuphegebaljq
+nvommufwtdbfiyxuphzgeraljq
+uvksmkcwtdbfiysuphzgeraljq
+nvosmkcwevbfiyxuphtgeraljq
+nvosmkcmtdbfiycuphzgeraxjq
+nvcsxkcwtdbfiyxuphzgeraljn
+nvosmkcwtdbtiymuphzgeraltq
+nvosmfcwtdlfjyxuphzgeraljq
+svosmkcitdbfiyxuphzgsraljq
