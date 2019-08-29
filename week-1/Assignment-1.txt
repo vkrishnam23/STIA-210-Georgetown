@@ -8,13 +8,14 @@ Submission: Share a Colab Notebook with the Professors:
 General idea of Colab Notebook Problem Set Submission : it should “just work” when I run the code cells
 
 
-The reading for next class is this paper on GDPR and data ethics for machine learning: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2865811
+1) The reading for next class is this paper on GDPR and data ethics for machine learning: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2865811
 
 We will start next class with a discussion on the points discussed in the paper.
 
 
-Create a Python function to perform basic name similarity analysis.
+2) Create a Python function to perform basic name similarity analysis.
 First, begin by creating a function called score_name_similarity that takes in three arguments (the two names to score similarity, and the third argument = ‘mode’, more on this in a minute) and returns a floating point score from 0 (very much not similar) to 1 (exact match).
+
 In the first mode of similarity calculation. ‘dummy’ mode, return 1 for names that match exactly, and 0 for names that do not exactly match (ensure that case does not matter so it’s not thaaaat dumb).
 Clearly, exact matching is the ‘dummy’ mode. Let’s build something more clever. Using the length of the longer name as the ‘reference’, count the frequency of characters between the two names:
 
@@ -43,7 +44,7 @@ How does this behave as a similarity matcher?
 There are many open source packages in Python for name similarity matching (Levenstein, fuzzywuzzy, etc: https://www.datacamp.com/community/tutorials/fuzzy-string-python) Use one of these options as a third mode in your method and compare the score of 5 - 10 name combinations between each of the three modes in the function. Extra points available for those that create another function to test each of the modes for a name combination set and displays the results in a table or graph with simple stats included.
 
 
-Global Power Plant dataset: http://datasets.wri.org/dataset/globalpowerplantdatabase
+3) Global Power Plant dataset: http://datasets.wri.org/dataset/globalpowerplantdatabase
 
 Use the .csv on the link above to grow your knowledge in pandas and apply the lessons learned to the energy sector.
 
@@ -51,13 +52,13 @@ Bring the data into your Google Colab Notebook (there are examples to read from 
 
 Do at least the following:
 	
-List the top 10 power plants by capacity.
-Determine the top 10 countries with the most power plants (by count)
-Determine the frequency of primary_fuel types for the total dataset.
-Calculate and show any major statistics that you see fit (avg. capacity + stdev, total power produced for each country - sorted)
-Find the population of each country in the world (a website like this is fine: https://www.worldometers.info/world-population/population-by-country/) and use the sum of power produced for each country to show the ‘per capita’ power generation. A slick way to do this would be to create a pandas dataframe with 2 columns (Country Name, and sum of power produced) from the first data source, and then join the population table onto this by country name, then create a column that divides the first two columns).
+3a) List the top 10 power plants by capacity.
+3b) Determine the top 10 countries with the most power plants (by count)
+3c) Determine the frequency of primary_fuel types for the total dataset.
+3d) Calculate and show any major statistics that you see fit (avg. capacity + stdev, total power produced for each country - sorted)
+3e) Find the population of each country in the world (a website like this is fine: https://www.worldometers.info/world-population/population-by-country/) and use the sum of power produced for each country to show the ‘per capita’ power generation. A slick way to do this would be to create a pandas dataframe with 2 columns (Country Name, and sum of power produced) from the first data source, and then join the population table onto this by country name, then create a column that divides the first two columns).
 
-Final Project Related Question
+4) Final Project Related Question
 Visit this site to start scoping your final project: github.com/awesomedata/awesome-public-datasets
 
 This GitHub repository provides a large list of open source datasets you may decide to use in your final project (note, you may certainly use a data source that is not on this list). There is no deliverable for 3a, though you could briefly summarize your findings and how they are interesting to your idea.
@@ -65,7 +66,7 @@ This GitHub repository provides a large list of open source datasets you may dec
 
 One component of your final project is that you will need to procure a dataset completely by yourself to augment the project. One idea is a survey - allowing peers to provide structured and unstructured data to you, joining the results with another dataset you use. Other ideas could be recording foot traffic at an intersection, counting the number of people who put out cigarettes outside of buildings, counting the number of cars in a parking lot of interest (perhaps avoid looking like a carjacker), buying a sensor (LIDAR, camera, AIS, StingRays or Police Radios where legal), the list goes on.... Outline the format of data you plan to collect and a hypothesis statement as to its importance.
 
-With the following strings, compute the “magic sum”. The “magic sum” is a confusing equation made up for the enjoyment of coding. You will be given a set of strings, like the following:
+5) With the following strings, compute the “magic sum”. The “magic sum” is a confusing equation made up for the enjoyment of coding. You will be given a set of strings, like the following:
 
 abcdef
 bababc
